@@ -1,0 +1,83 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Cool Music Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        header {
+            margin-top: 50px;
+            font-size: 3em;
+            padding: 20px 40px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            transition: transform 0.8s ease, color 0.8s ease;
+        }
+
+        .video-container {
+            margin-top: 40px;
+            width: 80%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="cool-header">🎧 Vibe Mode Activated 🎧</header>
+
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/TO-_3tck2tg?si=wdqae8YimWN_rcP0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        const header = document.getElementById("cool-header");
+        const colors = ["#ff007f", "#00ffff", "#00ff00", "#ffcc00", "#ff6600", "#9933ff"];
+        let i = 0;
+
+        setInterval(() => {
+            // Cycle through colors
+            header.style.color = colors[i % colors.length];
+
+            // Animate scale
+            header.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                header.style.transform = 'scale(1)';
+            }, 400);
+
+            i++;
+        }, 1000);
+    </script>
+
+</body>
+</html>
